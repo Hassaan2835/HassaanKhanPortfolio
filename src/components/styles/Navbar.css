@@ -3,8 +3,7 @@
   max-width: var(--cMaxWidth);
   width: var(--cWidth);
   justify-content: space-between;
-  align-items: center;
-  padding: 15px 5px;
+  padding: 20px 0px;
   margin-bottom: -100px;
   box-sizing: border-box;
   position: fixed;
@@ -13,20 +12,16 @@
   top: 0;
   z-index: 9999;
 }
-@media only screen and (min-width: 500px) {
-  .header {
-    padding: 15px 0px;
-  }
-}
 .header ul {
-  font-size: 11px;
+  font-size: 12px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 0;
   padding: 0;
   list-style: none;
-  column-gap: 15px;
-  align-items: center;
+  column-gap: 40px;
+  row-gap: 8px;
+  align-items: end;
 }
 .header ul li {
   margin-left: 0px;
@@ -55,7 +50,8 @@
     padding: 20px 0px;
   }
   .header ul {
-    column-gap: 30px;
+    flex-direction: row;
+    align-items: center;
     font-size: 14px;
   }
   .header ul li {
