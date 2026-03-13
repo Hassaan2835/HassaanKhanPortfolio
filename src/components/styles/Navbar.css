@@ -3,7 +3,8 @@
   max-width: var(--cMaxWidth);
   width: var(--cWidth);
   justify-content: space-between;
-  padding: 20px 0px;
+  align-items: center;
+  padding: 15px 5px;
   margin-bottom: -100px;
   box-sizing: border-box;
   position: fixed;
@@ -12,16 +13,20 @@
   top: 0;
   z-index: 9999;
 }
+@media only screen and (min-width: 500px) {
+  .header {
+    padding: 15px 0px;
+  }
+}
 .header ul {
-  font-size: 12px;
+  font-size: 11px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin: 0;
   padding: 0;
   list-style: none;
-  column-gap: 40px;
-  row-gap: 8px;
-  align-items: end;
+  column-gap: 15px;
+  align-items: center;
 }
 .header ul li {
   margin-left: 0px;
@@ -50,8 +55,7 @@
     padding: 20px 0px;
   }
   .header ul {
-    flex-direction: row;
-    align-items: center;
+    column-gap: 30px;
     font-size: 14px;
   }
   .header ul li {

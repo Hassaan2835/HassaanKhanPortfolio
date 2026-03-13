@@ -48,12 +48,12 @@
   z-index: 99;
   display: flex;
   gap: 5px;
-  bottom: 40px;
-  right: 0;
+  bottom: 120px;
+  right: -10px;
   width: auto;
   text-wrap: nowrap;
   letter-spacing: 4px;
-  font-size: 15px;
+  font-size: 13px;
   line-height: 15px;
   font-weight: 600;
   color: #5e5e5e;
@@ -61,6 +61,13 @@
   transition: 0.5s;
   transform-origin: left bottom;
   transform: translateX(100%) rotateZ(-90deg);
+}
+@media only screen and (min-width: 500px) {
+  .resume-button {
+    bottom: 40px;
+    right: 0;
+    font-size: 15px;
+  }
 }
 .resume-button:hover {
   color: #fff;
