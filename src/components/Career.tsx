@@ -32,7 +32,7 @@ const Career = () => {
                 <h4>Senior Full Stack Developer</h4>
                 <h5>IGS Health Care</h5>
               </div>
-              <h3>2024</h3>
+              <h3>Now</h3>
             </div>
             <p>
               Build and manage the health care website using React.js and Node.js,
@@ -45,7 +45,7 @@ const Career = () => {
                 <h4>Full Stack Developer</h4>
                 <h5>DeveloperHub Corporation</h5>
               </div>
-              <h3>NOW</h3>
+              <h3>Part Time</h3>
             </div>
             <p>
               Building Solid, a proprietary low-code platform using Angular,
