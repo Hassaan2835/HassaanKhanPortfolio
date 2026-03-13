@@ -15,10 +15,10 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Full Stack Developer</h4>
+                <h3>Full Stack Developer</h3>
                 <h5>-</h5>
               </div>
-              <h3>2025</h3>
+              <h4>2025</h4>
             </div>
             <p>
               Built 2+ complete applications using React.js. Integrated backend
@@ -29,10 +29,10 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Senior Full Stack Developer</h4>
+                <h3>Senior Full Stack Developer</h3>
                 <h5>IGS Health Care</h5>
               </div>
-              <h3>Now</h3>
+              <h4>Now</h4>
             </div>
             <p>
               Build and manage the health care website using React.js and Node.js,
@@ -42,10 +42,10 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Full Stack Developer</h4>
+                <h3>Full Stack Developer</h3>
                 <h5>DeveloperHub Corporation</h5>
               </div>
-              <h3>Part Time</h3>
+              <h4>Part Time</h4>
             </div>
             <p>
               Building Solid, a proprietary low-code platform using Angular,
