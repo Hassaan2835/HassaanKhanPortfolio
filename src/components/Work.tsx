@@ -8,7 +8,7 @@ const projects = [
     title: "IGS Health Care",
     category: "Low-Code Platform",
     tools: "React.js, Next.js, NestJS, MongoDB",
-    image: "/images/igs-healthcare.png",
+    image: "/images/igs-healthcare.webp",
   },
 
 ];
