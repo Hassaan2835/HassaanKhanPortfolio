@@ -56,11 +56,11 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://linkedin.com/in/hassaan-khanofficial"
+                  href="https://www.linkedin.com/in/iamhassaankhan/"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  LinkedIn (hassaan-khanofficial)
+                  LinkedIn (iamhassaankhan)
                 </a>
               </li>
               <li>

@@ -56,8 +56,8 @@ PROFILE OF HASSAAN KHAN:
   - Always emphasize: "Exact price project ke features aur scope par depend karti hai. Hassaan 24 ghante ke andar transparent, custom quote deta hai!"
 - Contact Details:
   - Email: hassaan19620@gmail.com / hassaankhan.dev@gmail.com
-  - WhatsApp: +92 316 5447400
-  - LinkedIn: https://www.linkedin.com/in/hassaan-khanofficial
+  - WhatsApp: +92 327 6530094
+  - LinkedIn: https://www.linkedin.com/in/iamhassaankhan/
   - GitHub: https://github.com/Hassaan2835
   - Instagram: https://www.instagram.com/hassaankhan7400
   - Location: Rawalpindi / Islamabad, Pakistan (Available for Global Remote Work).
@@ -230,9 +230,9 @@ function getSmartFallbackReply(query: string): string {
   ) {
     return (
       "Aap direct Hassaan se abhi rabta kar saktay hain! 🤝\n\n" +
-      "• **WhatsApp:** [+92 316 5447400](https://wa.me/923165447400)\n" +
+      "• **WhatsApp:** [+92 327 6530094](https://wa.me/923276530094)\n" +
       "• **Email:** [hassaan19620@gmail.com](mailto:hassaan19620@gmail.com)\n" +
-      "• **LinkedIn:** [hassaan-khanofficial](https://linkedin.com/in/hassaan-khanofficial)\n" +
+      "• **LinkedIn:** [iamhassaankhan](https://www.linkedin.com/in/iamhassaankhan/)\n" +
       "• **GitHub:** [Hassaan2835](https://github.com/Hassaan2835)\n\n" +
       "Neechay apna name aur WhatsApp number dalein, Hassaan direct aapse connect ho jayega!"
     );
@@ -358,7 +358,7 @@ export async function askGeminiSalesman(
  * Format a lead capture message for WhatsApp dispatch
  */
 export function createWhatsAppLeadUrl(lead: LeadData): string {
-  const phone = "923165447400";
+  const phone = "923276530094";
   const text =
     `*New Client Lead from Portfolio AI Salesman*\n\n` +
     `👤 *Name:* ${lead.name}\n` +

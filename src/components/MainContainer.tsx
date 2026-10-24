@@ -10,12 +10,14 @@ import Testimonials from "./Testimonials";
 import NewsletterContact from "./NewsletterContact";
 import Footer from "./Footer";
 import Cursor from "./Cursor";
+import FloatingWhatsApp from "./FloatingWhatsApp";
 
 const MainContainer = () => {
   return (
     <div className="container-main">
       <Cursor />
       <Navbar />
+      <FloatingWhatsApp />
 
       {/* Main Page Flow - 100% Native High-Performance Smooth Scroll */}
       <main className="main-content-flow">

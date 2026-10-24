@@ -1,0 +1,142 @@
+/* ==========================================================================
+   Floating WhatsApp Button Styles
+   ========================================================================== */
+
+.floating-wa-wrapper {
+  position: fixed;
+  bottom: 26px;
+  left: 26px;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Main WhatsApp Round Button */
+.floating-wa-btn {
+  position: relative;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45),
+              0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.floating-wa-btn:hover {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 16px 35px rgba(37, 211, 102, 0.6),
+              0 6px 16px rgba(0, 0, 0, 0.6);
+}
+
+.wa-icon {
+  font-size: 30px;
+  color: #ffffff;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  transition: transform 0.2s ease;
+}
+
+.floating-wa-btn:hover .wa-icon {
+  transform: scale(1.08);
+}
+
+/* Pulsing Ripple Rings */
+.wa-pulse-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid #25D366;
+  opacity: 0.8;
+  animation: waPulseAnimation 2.4s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+  pointer-events: none;
+}
+
+.wa-pulse-ring.delay {
+  animation-delay: 1.2s;
+}
+
+@keyframes waPulseAnimation {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* Tooltip Badge on Hover */
+.floating-wa-tooltip {
+  position: absolute;
+  left: 68px;
+  background: rgba(11, 25, 41, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  padding: 8px 14px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5),
+              0 0 15px rgba(37, 211, 102, 0.2);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-8px);
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.floating-wa-tooltip.visible,
+.floating-wa-wrapper:hover .floating-wa-tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.wa-tooltip-status {
+  font-size: 11px;
+  font-weight: 700;
+  color: #25D366;
+}
+
+.wa-tooltip-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 600px) {
+  .floating-wa-wrapper {
+    bottom: 20px;
+    left: 18px;
+  }
+
+  .floating-wa-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .wa-icon {
+    font-size: 26px;
+  }
+
+  .floating-wa-tooltip {
+    display: none;
+  }
+}
