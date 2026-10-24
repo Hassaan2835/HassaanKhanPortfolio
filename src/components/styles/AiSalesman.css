@@ -1,0 +1,843 @@
+/* ==========================================================================
+   Hassaan Khan - 24/7 AI Sales Executive & Chat Assistant
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Hero Inline Sales Bar (Replacing Brands Strip)
+   -------------------------------------------------------------------------- */
+.hero-ai-sales-bar {
+  position: relative;
+  margin-top: 60px;
+  width: 100%;
+  background: rgba(11, 25, 41, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(126, 231, 200, 0.25);
+  border-radius: 20px;
+  padding: 24px 28px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45),
+              0 0 35px rgba(126, 231, 200, 0.08);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hero-ai-sales-bar:hover {
+  border-color: rgba(126, 231, 200, 0.45);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55),
+              0 0 45px rgba(126, 231, 200, 0.12);
+}
+
+.sales-bar-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #7ee7c8, #38bdf8, transparent);
+  animation: glowSweep 6s linear infinite;
+}
+
+@keyframes glowSweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.sales-bar-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* Left Profile */
+.sales-bot-profile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 280px;
+}
+
+.sales-avatar-wrap {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+}
+
+.sales-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #7ee7c8;
+  box-shadow: 0 4px 15px rgba(126, 231, 200, 0.3);
+}
+
+.live-pulse-dot {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 14px;
+  height: 14px;
+  background: #10b981;
+  border: 2px solid #0B1929;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #10b981;
+  animation: pulseGreen 2s infinite;
+}
+
+@keyframes pulseGreen {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 8px #10b981;
+  }
+  50% {
+    transform: scale(1.2);
+    box-shadow: 0 0 16px #10b981;
+  }
+}
+
+.sales-profile-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sales-bot-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #7ee7c8;
+}
+
+.sparkle-icon {
+  font-size: 12px;
+}
+
+.sales-bot-heading {
+  font-size: 15px;
+  font-weight: 600;
+  color: #f3f4f6;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* Right Actions & Inline Form */
+.sales-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.quick-chips-scroll {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.quick-chip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e5e7eb;
+  padding: 7px 13px;
+  border-radius: 9999px;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.quick-chip-btn:hover {
+  background: rgba(126, 231, 200, 0.15);
+  border-color: #7ee7c8;
+  color: #7ee7c8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(126, 231, 200, 0.15);
+}
+
+.chip-icon {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+
+/* Inline Input */
+.sales-inline-input-wrap {
+  display: flex;
+  align-items: center;
+  background: rgba(7, 18, 30, 0.85);
+  border: 1px solid rgba(126, 231, 200, 0.3);
+  border-radius: 9999px;
+  padding: 4px 6px 4px 16px;
+  min-width: 270px;
+  transition: border-color 0.2s ease;
+}
+
+.sales-inline-input-wrap:focus-within {
+  border-color: #7ee7c8;
+  box-shadow: 0 0 15px rgba(126, 231, 200, 0.2);
+}
+
+.sales-inline-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 13px;
+  width: 100%;
+}
+
+.sales-inline-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.sales-inline-submit-btn {
+  background: #7ee7c8;
+  color: #07221b;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 13px;
+  transition: transform 0.2s ease, background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.sales-inline-submit-btn:hover {
+  background: #00ffb3;
+  transform: scale(1.08);
+}
+
+/* Open Full Chat button */
+.open-full-chat-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #0f3d33, #092620);
+  border: 1px solid rgba(126, 231, 200, 0.4);
+  color: #7ee7c8;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.open-full-chat-btn:hover {
+  background: #7ee7c8;
+  color: #07221b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(126, 231, 200, 0.35);
+}
+
+/* --------------------------------------------------------------------------
+   2. Floating Persistent Trigger (Bottom Right)
+   -------------------------------------------------------------------------- */
+.floating-ai-trigger {
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(11, 25, 41, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(126, 231, 200, 0.5);
+  padding: 8px 16px 8px 8px;
+  border-radius: 9999px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5),
+              0 0 25px rgba(126, 231, 200, 0.2);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  color: #ffffff;
+}
+
+.floating-ai-trigger:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: #7ee7c8;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65),
+              0 0 35px rgba(126, 231, 200, 0.35);
+}
+
+.floating-avatar-container {
+  position: relative;
+  width: 42px;
+  height: 42px;
+}
+
+.floating-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #7ee7c8;
+}
+
+.floating-pulse-badge {
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 12px;
+  height: 12px;
+  background: #10b981;
+  border: 2px solid #0B1929;
+  border-radius: 50%;
+  animation: pulseGreen 2s infinite;
+}
+
+.floating-trigger-copy {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.floating-kicker {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #7ee7c8;
+  letter-spacing: 0.05em;
+}
+
+.floating-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+/* --------------------------------------------------------------------------
+   3. Full Chat Modal / Window
+   -------------------------------------------------------------------------- */
+.sales-chat-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(4, 9, 16, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 24px;
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.sales-chat-window {
+  width: min(460px, 94vw);
+  height: min(650px, 86vh);
+  background: #0B1929;
+  border: 1px solid rgba(126, 231, 200, 0.3);
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7),
+              0 0 50px rgba(126, 231, 200, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Window Header */
+.chat-window-header {
+  padding: 16px 20px;
+  background: rgba(7, 18, 30, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-header-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chat-avatar-ring {
+  position: relative;
+  width: 44px;
+  height: 44px;
+}
+
+.chat-header-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #7ee7c8;
+}
+
+.chat-online-badge {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 11px;
+  height: 11px;
+  background: #10b981;
+  border: 2px solid #0B1929;
+  border-radius: 50%;
+}
+
+.chat-header-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.chat-header-sub {
+  font-size: 11.5px;
+  color: #7ee7c8;
+  margin: 2px 0 0 0;
+}
+
+.chat-header-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chat-ctrl-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: #e5e7eb;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 16px;
+}
+
+.chat-ctrl-btn:hover {
+  background: rgba(239, 68, 68, 0.25);
+  color: #ef4444;
+}
+
+/* Quick Strip inside Modal */
+.chat-quick-strip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background: rgba(15, 30, 48, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.chat-quick-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.chat-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #d1d5db;
+  padding: 5px 11px;
+  border-radius: 9999px;
+  font-size: 11.5px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.chat-pill-btn:hover {
+  background: rgba(126, 231, 200, 0.18);
+  color: #7ee7c8;
+  border-color: #7ee7c8;
+}
+
+/* Messages Scroll */
+.chat-messages-scroll {
+  flex: 1;
+  padding: 18px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  scroll-behavior: smooth;
+}
+
+.chat-messages-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.chat-messages-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
+
+/* Message Rows */
+.chat-bubble-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.user-row {
+  justify-content: flex-end;
+}
+
+.bot-row {
+  justify-content: flex-start;
+}
+
+.bubble-bot-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #7ee7c8;
+  flex-shrink: 0;
+  margin-bottom: 4px;
+}
+
+.bubble-bot-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.chat-bubble-card {
+  max-width: 82%;
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.user-card {
+  background: linear-gradient(135deg, #0e4438, #186856);
+  color: #f0fdf9;
+  border-bottom-right-radius: 4px;
+  border: 1px solid rgba(126, 231, 200, 0.3);
+}
+
+.bot-card {
+  background: rgba(18, 36, 56, 0.95);
+  color: #f3f4f6;
+  border-bottom-left-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.bubble-text strong {
+  color: #7ee7c8;
+  font-weight: 700;
+}
+
+.chat-link {
+  color: #38bdf8;
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+.bubble-time {
+  display: block;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 5px;
+  text-align: right;
+}
+
+/* Typing Indicator */
+.typing-card {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 18px;
+}
+
+.typing-dot {
+  width: 7px;
+  height: 7px;
+  background: #7ee7c8;
+  border-radius: 50%;
+  animation: bounceDot 1.4s infinite ease-in-out both;
+}
+
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounceDot {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.3;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Lead Capture Card inside chat */
+.lead-capture-card {
+  background: linear-gradient(145deg, rgba(14, 38, 59, 0.95), rgba(7, 24, 39, 0.95));
+  border: 1.5px solid #7ee7c8;
+  border-radius: 18px;
+  padding: 16px;
+  margin-top: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4),
+              0 0 25px rgba(126, 231, 200, 0.15);
+  animation: fadeIn 0.3s ease;
+}
+
+.lead-card-header {
+  margin-bottom: 12px;
+}
+
+.lead-card-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #7ee7c8;
+  margin-bottom: 4px;
+}
+
+.lead-card-header h5 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+}
+
+.lead-card-header p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.lead-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lead-input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.lead-field {
+  width: 100%;
+  background: rgba(5, 15, 25, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 9px 12px;
+  font-size: 12.5px;
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.lead-field:focus {
+  border-color: #7ee7c8;
+}
+
+.lead-select {
+  cursor: pointer;
+}
+
+.lead-select option {
+  background: #0B1929;
+  color: #ffffff;
+}
+
+.lead-textarea {
+  resize: none;
+  font-family: inherit;
+}
+
+.lead-form-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lead-submit-btn {
+  flex: 1;
+  background: #7ee7c8;
+  color: #07221b;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.lead-submit-btn:hover {
+  background: #00ffb3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(126, 231, 200, 0.4);
+}
+
+.lead-dismiss-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 9px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.lead-dismiss-btn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Chat Input Bar */
+.chat-input-bar {
+  padding: 14px 16px;
+  background: rgba(7, 18, 30, 0.98);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chat-text-input {
+  flex: 1;
+  background: rgba(15, 30, 48, 0.9);
+  border: 1px solid rgba(126, 231, 200, 0.25);
+  border-radius: 9999px;
+  padding: 11px 18px;
+  font-size: 13.5px;
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.chat-text-input:focus {
+  border-color: #7ee7c8;
+}
+
+.chat-send-btn {
+  background: #7ee7c8;
+  color: #07221b;
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.chat-send-btn:hover:not(:disabled) {
+  background: #00ffb3;
+  transform: scale(1.06);
+}
+
+.chat-send-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   4. Responsive Adjustments
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 900px) {
+  .sales-bar-main {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sales-bar-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .sales-inline-input-wrap {
+    min-width: 100%;
+  }
+
+  .floating-trigger-copy {
+    display: none;
+  }
+
+  .floating-ai-trigger {
+    padding: 6px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-ai-sales-bar {
+    padding: 18px 16px;
+    margin-top: 40px;
+  }
+
+  .sales-bot-heading {
+    font-size: 14px;
+  }
+
+  .sales-chat-window {
+    width: 100vw;
+    height: 92vh;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .sales-chat-overlay {
+    padding: 0;
+  }
+
+  .lead-input-row {
+    flex-direction: column;
+  }
+}

@@ -1,5 +1,6 @@
 import { PropsWithChildren } from "react";
 import { FiCheck, FiCode, FiUserCheck } from "react-icons/fi";
+import AiSalesman from "./AiSalesman";
 import "./styles/Landing.css";
 
 const Landing = ({ children }: PropsWithChildren) => {
@@ -101,34 +102,8 @@ const Landing = ({ children }: PropsWithChildren) => {
           </div>
         </div>
 
-        {/* Partner / Brand Logos Strip */}
-        <div className="hero-brands-strip">
-          <div className="brand-item">
-            <svg className="brand-logo" viewBox="0 0 118 36" fill="currentColor">
-              <text x="0" y="26" fontSize="22" fontWeight="700" letterSpacing="-0.5">airbnb</text>
-            </svg>
-          </div>
-          <div className="brand-item">
-            <svg className="brand-logo" viewBox="0 0 130 36" fill="currentColor">
-              <text x="0" y="26" fontSize="22" fontWeight="700" letterSpacing="-0.5">grammarly</text>
-            </svg>
-          </div>
-          <div className="brand-item">
-            <svg className="brand-logo" viewBox="0 0 110 36" fill="currentColor">
-              <text x="0" y="26" fontSize="22" fontWeight="700" letterSpacing="-0.5">HubSpot</text>
-            </svg>
-          </div>
-          <div className="brand-item">
-            <svg className="brand-logo" viewBox="0 0 120 36" fill="currentColor">
-              <text x="0" y="26" fontSize="22" fontWeight="700" letterSpacing="-0.5">unbounce</text>
-            </svg>
-          </div>
-          <div className="brand-item">
-            <svg className="brand-logo" viewBox="0 0 120 36" fill="currentColor">
-              <text x="0" y="26" fontSize="22" fontWeight="700" letterSpacing="-0.5">mailchimp</text>
-            </svg>
-          </div>
-        </div>
+        {/* 24/7 AI Salesman Assistant Console */}
+        <AiSalesman />
       </div>
 
       {children}
