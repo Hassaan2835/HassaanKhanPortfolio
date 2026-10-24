@@ -1,77 +1,233 @@
-@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+/* OptiFolio Design System - Matching Figma Template */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Geist:wght@300;400;500;600;700&display=swap");
 
 :root {
-  font-family: "Geist", sans-serif;
-
-  font-optical-sizing: auto;
-  font-style: normal;
+  /* Typography */
+  font-family: "Plus Jakarta Sans", "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   line-height: 1.5;
   scroll-behavior: smooth;
   color-scheme: light dark;
-  color: #eae5ec;
-  background-color: var(--backgroundColor);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  --accentColor: #5eead4;
-  --backgroundColor: #0a0e17;
+  /* Figma Forest Green Theme Palette */
+  --bg-dark: #07221b;
+  --bg-dark-secondary: #0a2d24;
+  --bg-dark-card: #0d382e;
+  --bg-dark-card-hover: #104438;
+  --border-dark: rgba(255, 255, 255, 0.12);
+  --border-emerald: rgba(16, 185, 129, 0.35);
+
+  /* Light Theme Sections */
+  --bg-light: #f7f9f8;
+  --bg-light-secondary: #ffffff;
+  --bg-light-card: #ffffff;
+  --border-light: #e5e7eb;
+
+  /* Accents */
+  --accent-emerald: #10b981;
+  --accent-emerald-vibrant: #059669;
+  --accent-mint: #7ee7c8;
+  --accent-mint-dark: #064e3b;
+  --accent-mint-light: #e6f9f3;
+  --accent-glow: rgba(16, 185, 129, 0.25);
+
+  /* Text Colors */
+  --text-white: #ffffff;
+  --text-white-muted: #a3c2b8;
+  --text-dark: #111827;
+  --text-dark-secondary: #4b5563;
+  --text-dark-muted: #9ca3af;
+
+  /* Compatibility Vars */
+  --accentColor: #10b981;
+  --backgroundColor: #07221b;
+  --color-primary: #07221b;
+  --color-dark-bg: #07221b;
+  --color-card-bg: #0d382e;
+  --color-accent: #7ee7c8;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a3c2b8;
+
+  /* Sizing */
+  --cWidth: 1200px;
+  --cMaxWidth: 1280px;
   --vh: 100vh;
-  --vh: 100svh;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Geist", sans-serif;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  overflow-x: hidden;
+  width: 100%;
 }
 
-body {
-  overflow: hidden;
-}
-
-a {
-  color: inherit;
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: var(--accentColor);
-}
-
-main {
-  opacity: 1;
-  transition: 0.3s;
-}
-
-.main-active {
-  opacity: 0;
-  animation: fadeIn 1s 1;
-  animation-fill-mode: forwards;
-}
-
-@keyframes fadeIn {
-  100% {
-    opacity: 1;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   margin: 0;
   height: auto;
-  background-color: #050810;
-  flex-grow: 1;
-  --cWidth: calc(100% - 30px);
-  --cMaxWidth: 1920px;
-  max-width: 100vw;
+  background-color: var(--bg-dark);
+  color: var(--text-white);
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  font-family: "Plus Jakarta Sans", "Geist", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg {
+  max-width: 100%;
+}
+
+/* Global Responsive Containers for All Device Breakpoints */
+@media screen and (max-width: 1280px) {
+  .hero-container,
+  .services-container,
+  .about-container,
+  .showcase-container,
+  .featured-container,
+  .tech-container,
+  .career-container,
+  .testimonials-container,
+  .fn-container,
+  .footer-container {
+    width: calc(100% - 48px) !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero-container,
+  .services-container,
+  .about-container,
+  .showcase-container,
+  .featured-container,
+  .tech-container,
+  .career-container,
+  .testimonials-container,
+  .fn-container,
+  .footer-container {
+    width: calc(100% - 32px) !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-container,
+  .services-container,
+  .about-container,
+  .showcase-container,
+  .featured-container,
+  .tech-container,
+  .career-container,
+  .testimonials-container,
+  .fn-container,
+  .footer-container {
+    width: calc(100% - 24px) !important;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .hero-container,
+  .services-container,
+  .about-container,
+  .showcase-container,
+  .featured-container,
+  .tech-container,
+  .career-container,
+  .testimonials-container,
+  .fn-container,
+  .footer-container {
+    width: calc(100% - 16px) !important;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Button Utilities from Figma */
+.btn-mint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--accent-mint);
+  color: var(--accent-mint-dark);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 13px 28px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(126, 231, 200, 0.3);
+}
+
+.btn-mint:hover {
+  transform: translateY(-2px);
+  background-color: #62d8b5;
+  box-shadow: 0 8px 24px rgba(126, 231, 200, 0.45);
+}
+
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--text-dark);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 12px 26px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-dark:hover {
+  background-color: #27303f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-outline-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-outline-pill:hover {
+  border-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Layout Utilities */
+.container-main {
+  width: 100%;
+  margin: auto;
+  position: relative;
+  overflow-x: clip;
+}
+
+.main-content-flow {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: clip;
 }
 
 .main-body {
@@ -79,19 +235,19 @@ body {
   overflow-x: hidden;
 }
 
-.container-main {
-  width: 100%;
-  margin: auto;
-  position: relative;
+/* Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
 }
 
-.container1 {
-  width: var(--cWidth);
-  height: var(--vh);
-  margin: auto;
-  position: relative;
-}
-
+/* Compatibility for split lines */
 .split-line {
   overflow: hidden;
 }
@@ -103,6 +259,7 @@ body {
   flex-wrap: nowrap;
 }
 
+/* Techstack Section */
 .techstack {
   width: 100%;
   position: relative;
@@ -120,14 +277,10 @@ body {
   width: 100%;
   top: 120px;
   left: 0;
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
-}
-
-@media screen and (min-width: 768px) {
-  body {
-    --cWidth: 94%;
-  }
+  color: var(--text-white);
+  letter-spacing: 2px;
 }
 
 @media screen and (max-width: 900px) {

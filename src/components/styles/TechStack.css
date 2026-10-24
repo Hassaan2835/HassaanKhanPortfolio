@@ -1,0 +1,228 @@
+/* TechStack Styles - OptiFolio Theme */
+.tech-section {
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  padding: 100px 0;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tech-container {
+  max-width: var(--cMaxWidth);
+  width: calc(100% - 60px);
+  margin: 0 auto;
+}
+
+/* Header */
+.tech-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 60px;
+}
+
+.tech-pill-badge {
+  display: inline-block;
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--accent-mint);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  margin-bottom: 16px;
+}
+
+.tech-title {
+  font-size: 44px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--text-white);
+  margin-bottom: 16px;
+}
+
+.tech-subtitle {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--text-white-muted);
+}
+
+/* 3-Column Categories Grid */
+.tech-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.tech-cat-card {
+  background: var(--bg-dark-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  padding: 32px 28px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+}
+
+.cat-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  letter-spacing: -0.2px;
+}
+
+/* Skills List */
+.skills-badge-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skill-item-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 16px 18px;
+  transition: all 0.25s ease;
+}
+
+.skill-item-card:hover {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.3);
+  transform: translateX(4px);
+}
+
+.skill-item-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.skill-icon-badge {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--accent-mint);
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(16, 185, 129, 0.12);
+  border-radius: 9px;
+  border: 1px solid rgba(16, 185, 129, 0.18);
+  flex-shrink: 0;
+}
+
+.tech-svg-brand {
+  font-size: 17px;
+  color: var(--accent-mint);
+  transition: transform 0.2s ease;
+}
+
+.skill-item-card:hover .tech-svg-brand {
+  transform: scale(1.15);
+}
+
+.color-react { color: #61dafb; }
+.color-ts { color: #38bdf8; }
+.color-tailwind { color: #38bdf8; }
+.color-wp { color: #38bdf8; }
+.color-node { color: #4ade80; }
+.color-nest { color: #f87171; }
+.color-graphql { color: #f472b6; }
+.color-seo { color: #34d399; }
+.color-perf { color: #fbbf24; }
+.color-mongo { color: #4ade80; }
+.color-docker { color: #60a5fa; }
+.color-python { color: #38bdf8; }
+.color-html { color: #f97316; }
+.color-git { color: #f43f5e; }
+.color-sql { color: #a855f7; }
+
+.skill-info {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.skill-name {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+.skill-level {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-mint);
+  background: rgba(126, 231, 200, 0.12);
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+.skill-desc {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--text-white-muted);
+  margin-left: 44px;
+}
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+  .tech-section {
+    padding: 70px 0;
+  }
+  .tech-categories-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .tech-title {
+    font-size: 34px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .tech-section {
+    padding: 50px 0;
+  }
+  .tech-header {
+    margin-bottom: 36px;
+  }
+  .tech-title {
+    font-size: 26px;
+  }
+  .tech-subtitle {
+    font-size: 13.5px;
+  }
+  .tech-cat-card {
+    padding: 22px 16px;
+    border-radius: 20px;
+  }
+  .cat-title {
+    font-size: 17px;
+    margin-bottom: 18px;
+  }
+  .skill-item-card {
+    padding: 12px 14px;
+    border-radius: 12px;
+  }
+  .skill-desc {
+    margin-left: 0;
+    margin-top: 6px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .tech-title {
+    font-size: 23px;
+  }
+}

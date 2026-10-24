@@ -6,81 +6,63 @@ import {
 } from "react-icons/fa6";
 import "./styles/SocialIcons.css";
 import { TbNotes } from "react-icons/tb";
-import { useEffect } from "react";
 import HoverLinks from "./HoverLinks";
 
 const SocialIcons = () => {
-  useEffect(() => {
-    const social = document.getElementById("social") as HTMLElement;
-
-    social.querySelectorAll("span").forEach((item) => {
-      const elem = item as HTMLElement;
-      const link = elem.querySelector("a") as HTMLElement;
-
-      const rect = elem.getBoundingClientRect();
-      let mouseX = rect.width / 2;
-      let mouseY = rect.height / 2;
-      let currentX = 0;
-      let currentY = 0;
-
-      const updatePosition = () => {
-        currentX += (mouseX - currentX) * 0.1;
-        currentY += (mouseY - currentY) * 0.1;
-
-        link.style.setProperty("--siLeft", `${currentX}px`);
-        link.style.setProperty("--siTop", `${currentY}px`);
-
-        requestAnimationFrame(updatePosition);
-      };
-
-      const onMouseMove = (e: MouseEvent) => {
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        if (x < 40 && x > 10 && y < 40 && y > 5) {
-          mouseX = x;
-          mouseY = y;
-        } else {
-          mouseX = rect.width / 2;
-          mouseY = rect.height / 2;
-        }
-      };
-
-      document.addEventListener("mousemove", onMouseMove);
-
-      updatePosition();
-
-      return () => {
-        elem.removeEventListener("mousemove", onMouseMove);
-      };
-    });
-  }, []);
-
   return (
     <div className="icons-section">
-      <div className="social-icons" data-cursor="icons" id="social">
+      <div className="social-icons" id="social">
         <span>
-          <a href="https://github.com/Hassaan2835" target="_blank" aria-label="GitHub Profile">
+          <a
+            href="https://github.com/Hassaan2835"
+            target="_blank"
+            rel="noreferrer"
+            data-cursor="icons"
+            aria-label="GitHub Profile"
+          >
             <FaGithub />
           </a>
         </span>
         <span>
-          <a href="https://www.linkedin.com/in/hassaan-khanofficial" target="_blank" aria-label="LinkedIn Profile">
+          <a
+            href="https://linkedin.com/in/hassaan-khan"
+            target="_blank"
+            rel="noreferrer"
+            data-cursor="icons"
+            aria-label="LinkedIn Profile"
+          >
             <FaLinkedinIn />
           </a>
         </span>
         <span>
-          <a href="https://x.com/rajeshchityal" target="_blank" aria-label="X (Twitter) Profile">
+          <a
+            href="https://x.com"
+            target="_blank"
+            rel="noreferrer"
+            data-cursor="icons"
+            aria-label="Twitter Profile"
+          >
             <FaXTwitter />
           </a>
         </span>
         <span>
-          <a href="https://www.instagram.com/hassaankhan7400?igsh=MW52M2Q2NjFmcTN3bg%3D%3D" target="_blank" aria-label="Instagram Profile">
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noreferrer"
+            data-cursor="icons"
+            aria-label="Instagram Profile"
+          >
             <FaInstagram />
           </a>
         </span>
       </div>
-      <a className="resume-button" href="#" aria-label="Download Resume">
+      <a
+        className="resume-button"
+        href="#contact"
+        data-cursor="disable"
+        aria-label="Contact or View Resume"
+      >
         <HoverLinks text="RESUME" />
         <span>
           <TbNotes />

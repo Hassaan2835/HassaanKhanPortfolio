@@ -1,214 +1,97 @@
-import * as THREE from "three";
-import { useRef, useMemo, useState, useEffect } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Environment } from "@react-three/drei";
-import { EffectComposer, N8AO } from "@react-three/postprocessing";
 import {
-  BallCollider,
-  Physics,
-  RigidBody,
-  CylinderCollider,
-  RapierRigidBody,
-} from "@react-three/rapier";
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiHtml5,
+  SiPython,
+  SiNodedotjs,
+  SiMongodb,
+  SiWordpress,
+  SiGit,
+} from "react-icons/si";
+import { FiDatabase, FiCpu, FiTrendingUp } from "react-icons/fi";
+import "./styles/TechStack.css";
 
-const textureLoader = new THREE.TextureLoader();
-const imageUrls = [
-  "/images/react2.webp",
-  "/images/next2.webp",
-  "/images/node2.webp",
-  "/images/express.webp",
-  "/images/mongo.webp",
-  "/images/mysql.webp",
-  "/images/typescript.webp",
-  "/images/javascript.webp",
+interface SkillItem {
+  name: string;
+  level: string;
+  icon: React.ReactNode;
+  desc: string;
+}
+
+interface SkillCategory {
+  category: string;
+  skills: SkillItem[];
+}
+
+const categories: SkillCategory[] = [
+  {
+    category: "Working With • Core Daily Drivers",
+    skills: [
+      { name: "React.js", level: "Primary", icon: <SiReact className="tech-svg-brand color-react" />, desc: "Modular component architecture, custom hooks, predictable state" },
+      { name: "Next.js", level: "Primary", icon: <SiNextdotjs className="tech-svg-brand" />, desc: "App Router, layout composition, SSR, and clean page templates" },
+      { name: "JavaScript & TS", level: "Primary", icon: <SiTypescript className="tech-svg-brand color-ts" />, desc: "Modern ES6+, strict typing, semantic interfaces & clean logic" },
+      { name: "Tailwind CSS", level: "Primary", icon: <SiTailwindcss className="tech-svg-brand color-tailwind" />, desc: "Mobile-first responsive styling, design consistency, zero bloat" },
+      { name: "Semantic HTML5/CSS", level: "Primary", icon: <SiHtml5 className="tech-svg-brand color-html" />, desc: "Accessible landmarks, WCAG AA contrast, touch targets (≥44px)" },
+    ],
+  },
+  {
+    category: "Familiar With • CS & Foundations",
+    skills: [
+      { name: "Python (OOP)", level: "Academic", icon: <SiPython className="tech-svg-brand color-python" />, desc: "Object-oriented programming, class hierarchies, clean architecture" },
+      { name: "Algorithms & DSA", level: "Academic", icon: <FiCpu className="tech-svg-brand color-perf" />, desc: "Data structures, algorithmic problem solving & memory complexity" },
+      { name: "Database Systems", level: "Academic", icon: <FiDatabase className="tech-svg-brand color-sql" />, desc: "Relational database schema modeling, indexing & SQL queries" },
+      { name: "Speech AI & Audio", level: "Capstone", icon: <FiTrendingUp className="tech-svg-brand color-seo" />, desc: "Speech recognition, acoustic processing & phonetic scoring" },
+    ],
+  },
+  {
+    category: "Growing Into • Full-Stack & CMS",
+    skills: [
+      { name: "Node.js & Express", level: "Learning", icon: <SiNodedotjs className="tech-svg-brand color-node" />, desc: "Asynchronous backend runtimes, routing & middleware" },
+      { name: "MongoDB & NoSQL", level: "Learning", icon: <SiMongodb className="tech-svg-brand color-mongo" />, desc: "Document modeling, collections, and RESTful data pipelines" },
+      { name: "WordPress CMS", level: "Certified", icon: <SiWordpress className="tech-svg-brand color-wp" />, desc: "Custom themes, page structure, content modeling & client control" },
+      { name: "Git & Version Control", level: "Daily", icon: <SiGit className="tech-svg-brand color-git" />, desc: "Atomic commits, branch workflows, and truthful documentation" },
+    ],
+  },
 ];
-const textures = imageUrls.map((url) => textureLoader.load(url));
-
-const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
-
-const spheres = [...Array(30)].map(() => ({
-  scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
-}));
-
-type SphereProps = {
-  vec?: THREE.Vector3;
-  scale: number;
-  r?: typeof THREE.MathUtils.randFloatSpread;
-  material: THREE.MeshPhysicalMaterial;
-  isActive: boolean;
-};
-
-function SphereGeo({
-  vec = new THREE.Vector3(),
-  scale,
-  r = THREE.MathUtils.randFloatSpread,
-  material,
-  isActive,
-}: SphereProps) {
-  const api = useRef<RapierRigidBody | null>(null);
-
-  useFrame((_state, delta) => {
-    if (!isActive) return;
-    delta = Math.min(0.1, delta);
-    const impulse = vec
-      .copy(api.current!.translation())
-      .normalize()
-      .multiply(
-        new THREE.Vector3(
-          -50 * delta * scale,
-          -150 * delta * scale,
-          -50 * delta * scale
-        )
-      );
-
-    api.current?.applyImpulse(impulse, true);
-  });
-
-  return (
-    <RigidBody
-      linearDamping={0.75}
-      angularDamping={0.15}
-      friction={0.2}
-      position={[r(20), r(20) - 25, r(20) - 10]}
-      ref={api}
-      colliders={false}
-    >
-      <BallCollider args={[scale]} />
-      <CylinderCollider
-        rotation={[Math.PI / 2, 0, 0]}
-        position={[0, 0, 1.2 * scale]}
-        args={[0.15 * scale, 0.275 * scale]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        scale={scale}
-        geometry={sphereGeometry}
-        material={material}
-        rotation={[0.3, 1, 1]}
-      />
-    </RigidBody>
-  );
-}
-
-type PointerProps = {
-  vec?: THREE.Vector3;
-  isActive: boolean;
-};
-
-function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
-  const ref = useRef<RapierRigidBody>(null);
-
-  useFrame(({ pointer, viewport }) => {
-    if (!isActive) return;
-    const targetVec = vec.lerp(
-      new THREE.Vector3(
-        (pointer.x * viewport.width) / 2,
-        (pointer.y * viewport.height) / 2,
-        0
-      ),
-      0.2
-    );
-    ref.current?.setNextKinematicTranslation(targetVec);
-  });
-
-  return (
-    <RigidBody
-      position={[100, 100, 100]}
-      type="kinematicPosition"
-      colliders={false}
-      ref={ref}
-    >
-      <BallCollider args={[2]} />
-    </RigidBody>
-  );
-}
 
 const TechStack = () => {
-  const [isActive, setIsActive] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY || document.documentElement.scrollTop;
-      const threshold = document
-        .getElementById("work")!
-        .getBoundingClientRect().top;
-      setIsActive(scrollY > threshold);
-    };
-    document.querySelectorAll(".header a").forEach((elem) => {
-      const element = elem as HTMLAnchorElement;
-      element.addEventListener("click", () => {
-        const interval = setInterval(() => {
-          handleScroll();
-        }, 10);
-        setTimeout(() => {
-          clearInterval(interval);
-        }, 1000);
-      });
-    });
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-  const materials = useMemo(() => {
-    return textures.map(
-      (texture) =>
-        new THREE.MeshPhysicalMaterial({
-          map: texture,
-          emissive: "#ffffff",
-          emissiveMap: texture,
-          emissiveIntensity: 0.3,
-          metalness: 0.5,
-          roughness: 1,
-          clearcoat: 0.1,
-        })
-    );
-  }, []);
-
   return (
-    <div className="techstack">
-      <h2> My Techstack</h2>
+    <section className="tech-section" id="tech">
+      <div className="tech-container">
+        <div className="tech-header">
+          <span className="tech-pill-badge">TECHNICAL TOOLKIT</span>
+          <h2 className="tech-title">VERIFIED TECHNICAL CAPABILITIES</h2>
+          <p className="tech-subtitle">
+            Categorized truthfully by daily practice, academic foundation, and active full-stack study—free
+            of arbitrary percentage bars or exaggerated claims.
+          </p>
+        </div>
 
-      <Canvas
-        dpr={[1, 1.5]}
-        shadows
-        gl={{ alpha: true, stencil: false, depth: false, antialias: false, powerPreference: "high-performance" }}
-        camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
-        onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
-        className="tech-canvas"
-      >
-        <ambientLight intensity={1} />
-        <spotLight
-          position={[20, 20, 25]}
-          penumbra={1}
-          angle={0.2}
-          color="white"
-          castShadow
-          shadow-mapSize={[512, 512]}
-        />
-        <directionalLight position={[0, 5, -4]} intensity={2} />
-        <Physics gravity={[0, 0, 0]}>
-          <Pointer isActive={isActive} />
-          {spheres.map((props, i) => (
-            <SphereGeo
-              key={i}
-              {...props}
-              material={materials[Math.floor(Math.random() * materials.length)]}
-              isActive={isActive}
-            />
+        <div className="tech-categories-grid">
+          {categories.map((cat, idx) => (
+            <div className="tech-cat-card" key={idx}>
+              <h3 className="cat-title">{cat.category}</h3>
+              <div className="skills-badge-list">
+                {cat.skills.map((skill, sIdx) => (
+                  <div className="skill-item-card" key={sIdx}>
+                    <div className="skill-item-top">
+                      <span className="skill-icon-badge">{skill.icon}</span>
+                      <div className="skill-info">
+                        <h4 className="skill-name">{skill.name}</h4>
+                        <span className="skill-level">{skill.level}</span>
+                      </div>
+                    </div>
+                    <p className="skill-desc">{skill.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           ))}
-        </Physics>
-        <Environment
-          files="/models/char_enviorment.hdr"
-          environmentIntensity={0.5}
-          environmentRotation={[0, 4, 2]}
-        />
-        <EffectComposer enableNormalPass={false}>
-          <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
-        </EffectComposer>
-      </Canvas>
-    </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

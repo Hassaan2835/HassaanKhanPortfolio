@@ -1,81 +1,123 @@
-import { useEffect } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useState } from "react";
 import HoverLinks from "./HoverLinks";
-import { gsap } from "gsap";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
 import "./styles/Navbar.css";
 
-gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
-export let smoother: ScrollSmoother;
-
 const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   useEffect(() => {
-    smoother = ScrollSmoother.create({
-      wrapper: "#smooth-wrapper",
-      content: "#smooth-content",
-      smooth: 1.7,
-      speed: 1.7,
-      effects: true,
-      autoResize: true,
-      ignoreMobileResize: true,
-    });
-
-    smoother.scrollTop(0);
-    smoother.paused(true);
-
-    let links = document.querySelectorAll(".header ul a");
+    // Smooth scrolling link listener
+    const links = document.querySelectorAll(".header ul a, .nav-btn-sayhi");
     links.forEach((elem) => {
-      let element = elem as HTMLAnchorElement;
+      const element = elem as HTMLAnchorElement;
       element.addEventListener("click", (e) => {
-        if (window.innerWidth > 1024) {
+        setMobileMenuOpen(false);
+        const targetId = element.getAttribute("data-href") || element.getAttribute("href");
+        if (targetId && targetId.startsWith("#")) {
           e.preventDefault();
-          let elem = e.currentTarget as HTMLAnchorElement;
-          let section = elem.getAttribute("data-href");
-          smoother.scrollTo(section, true, "top top");
+          const targetElem = document.querySelector(targetId);
+          if (targetElem) {
+            targetElem.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
         }
       });
     });
-    window.addEventListener("resize", () => {
-      ScrollSmoother.refresh(true);
-    });
-  }, []);
-  return (
-    <>
-      <div className="header">
-        <a href="/#" className="navbar-title" data-cursor="disable">
-          <img src="/logo-icon.png" alt="HK Logo" className="navbar-logo-img" />
-          <span>HK</span>
-        </a>
-        <a
-          href="mailto:hassaan19620@gmail.com"
-          className="navbar-connect"
-          data-cursor="disable"
-        >
-          hassaan19620@gmail.com
-        </a>
-        <ul>
-          <li>
-            <a data-href="#about" href="#about">
-              <HoverLinks text="ABOUT" />
-            </a>
-          </li>
-          <li>
-            <a data-href="#work" href="#work">
-              <HoverLinks text="WORK" />
-            </a>
-          </li>
-          <li>
-            <a data-href="#contact" href="#contact">
-              <HoverLinks text="CONTACT" />
-            </a>
-          </li>
-        </ul>
-      </div>
 
-      <div className="landing-circle1"></div>
-      <div className="landing-circle2"></div>
-      <div className="nav-fade"></div>
-    </>
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  return (
+    <header className={`header ${scrolled ? "header-scrolled" : ""}`}>
+      <div className="header-inner">
+        {/* Logo */}
+        <a href="/#" className="navbar-logo" data-cursor="disable">
+          <div className="logo-symbol">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 22H22L12 2Z" fill="#7ee7c8" fillOpacity="0.9" />
+              <path d="M12 7L6 19H18L12 7Z" fill="#07221b" />
+            </svg>
+          </div>
+          <span className="logo-text">Hassaan Khan</span>
+        </a>
+
+        {/* Navigation Links */}
+        <nav className={`navbar-nav ${mobileMenuOpen ? "nav-open" : ""}`}>
+          <ul>
+            <li>
+              <a data-href="#home" href="#home">
+                <HoverLinks text="Home" />
+              </a>
+            </li>
+            <li>
+              <a data-href="#services" href="#services">
+                <HoverLinks text="Services" />
+              </a>
+            </li>
+            <li>
+              <a data-href="#about" href="#about">
+                <HoverLinks text="About" />
+              </a>
+            </li>
+            <li>
+              <a data-href="#showcase" href="#showcase">
+                <HoverLinks text="Showcase" />
+              </a>
+            </li>
+            <li>
+              <a data-href="#projects" href="#projects">
+                <HoverLinks text="Projects" />
+              </a>
+            </li>
+            <li>
+              <a data-href="#tech" href="#tech">
+                <HoverLinks text="Tech Stack" />
+              </a>
+            </li>
+            <li>
+              <a data-href="#contact" href="#contact">
+                <HoverLinks text="Contact" />
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        {/* CTA Button */}
+        <div className="header-actions">
+          <a
+            href="#contact"
+            data-href="#contact"
+            className="btn-outline-pill nav-btn-sayhi"
+            data-cursor="disable"
+          >
+            Say hi
+          </a>
+
+          {/* Mobile Hamburger */}
+          <button
+            className={`mobile-toggle ${mobileMenuOpen ? "toggle-active" : ""}`}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation menu"
+            data-cursor="disable"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
   );
 };
 
