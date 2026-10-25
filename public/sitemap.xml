@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://hassaankhan.dev/</loc>
-    <lastmod>2026-03-13</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://hassaankhan.dev/images/hassaan-khan-developer.jpg</image:loc>
+      <image:title>Hassaan Khan - Senior Full Stack Developer &amp; Website Developer</image:title>
+      <image:caption>Hassaan Khan, professional Website Developer and Full Stack Engineer specializing in React, Next.js, and Node.js</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hassaankhan.dev/og-image.png</image:loc>
+      <image:title>Hassaan Khan Developer Brand Identity Logo</image:title>
+      <image:caption>Official brand logo of Hassaan Khan - Website Developer</image:caption>
+    </image:image>
   </url>
 </urlset>

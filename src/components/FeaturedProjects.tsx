@@ -316,8 +316,10 @@ const FeaturedProjects = () => {
               <div className="project-img-wrapper">
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} - Website Developed by Hassaan Khan`}
+                  title={`${project.title} - Hassaan Khan Portfolio`}
                   className="project-img"
+                  loading="lazy"
                 />
                 <span className="project-tag-badge">{project.tag}</span>
               </div>

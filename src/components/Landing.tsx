@@ -18,6 +18,7 @@ const Landing = ({ children }: PropsWithChildren) => {
             </div>
 
             <h1 className="hero-main-title">
+              <span className="hero-sr-seo">Hassaan Khan — Senior Full Stack Developer &amp; Website Developer | </span>
               THE ONE YOU CAN
               <br />
               TRUST FOR FULL STACK
@@ -26,7 +27,7 @@ const Landing = ({ children }: PropsWithChildren) => {
             </h1>
 
             <p className="hero-description">
-              I’m Hassaan, a Computer Science graduate from NUML Islamabad and a web developer
+              I’m Hassaan, a Computer Science graduate from NUML Islamabad and a professional website developer
               focused on modern React, Next.js, and clean CSS architecture. I prioritize semantic
               interfaces, responsive reliability, and honest technical execution.
             </p>
@@ -85,9 +86,13 @@ const Landing = ({ children }: PropsWithChildren) => {
               {/* Framed Photo */}
               <div className="portrait-frame">
                 <img
-                  src="/images/hero_portrait.jpg"
-                  alt="Hassaan Khan - Full Stack Developer"
+                  src="/images/hassaan-khan-developer.jpg"
+                  alt="Hassaan Khan - Senior Full Stack Developer & Website Developer"
+                  title="Hassaan Khan - Website Developer"
                   className="portrait-img"
+                  width="500"
+                  height="600"
+                  loading="eager"
                 />
               </div>
 

@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Allow: /images/
+Allow: /assets/
 
 Sitemap: https://hassaankhan.dev/sitemap.xml

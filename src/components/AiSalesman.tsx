@@ -257,8 +257,8 @@ export const AiSalesman: React.FC = () => {
           <div className="sales-bot-profile">
             <div className="sales-avatar-wrap">
               <img
-                src="/images/hero_portrait.jpg"
-                alt="Hassaan AI"
+                src="/images/hassaan-khan-developer.jpg"
+                alt="Hassaan Khan - Website Developer"
                 className="sales-avatar-img"
               />
               <span className="live-pulse-dot" title="Online 24/7"></span>
@@ -338,8 +338,8 @@ export const AiSalesman: React.FC = () => {
       >
         <div className="floating-avatar-container">
           <img
-            src="/images/hero_portrait.jpg"
-            alt="Hassaan AI Assistant"
+            src="/images/hassaan-khan-developer.jpg"
+            alt="Hassaan Khan - Senior Full Stack Developer"
             className="floating-avatar-img"
           />
           <span className="floating-pulse-badge"></span>
@@ -362,8 +362,8 @@ export const AiSalesman: React.FC = () => {
               <div className="chat-header-profile">
                 <div className="chat-avatar-ring">
                   <img
-                    src="/images/hero_portrait.jpg"
-                    alt="Hassaan AI"
+                    src="/images/hassaan-khan-developer.jpg"
+                    alt="Hassaan Khan - Website Developer"
                     className="chat-header-avatar"
                   />
                   <span className="chat-online-badge"></span>
