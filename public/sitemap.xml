@@ -3,13 +3,28 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://hassaankhan.dev/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://hassaankhan.dev/images/hassaan-khan-developer.jpg</image:loc>
       <image:title>Hassaan Khan - Senior Full Stack Developer &amp; Website Developer</image:title>
       <image:caption>Hassaan Khan, professional Website Developer and Full Stack Engineer specializing in React, Next.js, and Node.js</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hassaankhan.dev/images/hassaan-khan-full-stack-developer-rawalpindi.jpg</image:loc>
+      <image:title>Hassaan Khan - Full Stack Developer in Rawalpindi, Pakistan</image:title>
+      <image:caption>Hassaan Khan, Senior Full Stack Developer based in Rawalpindi, Pakistan, specializing in React, Next.js and Node.js</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hassaankhan.dev/images/hassaan-khan-senior-full-stack-developer-pakistan.jpg</image:loc>
+      <image:title>Hassaan Khan - Senior Full Stack Developer &amp; Software Engineer, Pakistan</image:title>
+      <image:caption>Portrait of Hassaan Khan, Full Stack Developer and BSCS graduate from NUML</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hassaankhan.dev/images/hassaan-khan-story-in-pictures.jpg</image:loc>
+      <image:title>Hassaan Khan - A Story in Pictures</image:title>
+      <image:caption>Hassaan Khan - same face, same dreams, different places. A story in pictures.</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hassaankhan.dev/og-image.png</image:loc>
